@@ -1,0 +1,74 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy indoor plant that purifies air and survives in low light.",
+    "image": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 22,
+    "rating": 4.7,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Elegant white flowers and excellent air-purifying qualities.",
+    "image": "https://images.unsplash.com/photo-1593691509543-c55fb32e7355",
+    "providerName": "GreenLeaf Nursery"
+  },
+  {
+    "plantId": 3,
+    "plantName": "Spider Plant",
+    "category": "Air Purifier",
+    "price": 15,
+    "rating": 4.6,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Fast-growing plant ideal for beginners and hanging baskets.",
+    "image": "https://images.unsplash.com/photo-1587300003388-59208cc962cb",
+    "providerName": "HomeGarden Hub"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Aloe Vera",
+    "category": "Medicinal",
+    "price": 20,
+    "rating": 4.9,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Medicinal succulent known for healing and skin care benefits.",
+    "image": "https://images.unsplash.com/photo-1596547609652-9cf5d8c52f1a",
+    "providerName": "NatureCare Plants"
+  },
+  {
+    "plantId": 5,
+    "plantName": "ZZ Plant",
+    "category": "Decorative",
+    "price": 25,
+    "rating": 4.8,
+    "availableStock": 6,
+    "careLevel": "Easy",
+    "description": "Low-light tolerant decorative plant with glossy leaves.",
+    "image": "https://images.unsplash.com/photo-1632207691143-643e2b1c9e6f",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Monstera Deliciosa",
+    "category": "Decorative",
+    "price": 30,
+    "rating": 4.9,
+    "availableStock": 5,
+    "careLevel": "Medium",
+    "description": "Large tropical leaves that add a bold indoor aesthetic.",
+    "image": "https://images.unsplash.com/photo-1615485737457-f07082c77813",
+    "providerName": "Tropical Roots"
+  }
+]
