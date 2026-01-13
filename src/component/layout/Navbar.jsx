@@ -12,7 +12,7 @@ const Navbar = () => {
         </>
     
     return (
-        <div className="navbar bg-base-100 shadow-sm ">
+        <div className="navbar shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost sm:hidden">
@@ -24,18 +24,19 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</a>
+    <Link to="/" className="btn btn- md:ml-5 text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
   </div>
   <div className="navbar-center hidden sm:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 text-accent">
      {
         links
      }
     </ul>
   </div>
-  <div className="navbar-end">
-    <Link to="/login" className="btn">Login</Link>
+  <div className="navbar-end ">
+    <Link to="/login" className="btn btn-primary md:mr-5">Login</Link>
   </div>
+
 </div>
     );
 };

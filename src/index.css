@@ -16,3 +16,7 @@ themes: light --default;
   --color-base-300:#E7E7E7;
   --color-accent: #706F6F;
 }
+ul a.active{
+   text-decoration: underline;
+   color:blue
+}
