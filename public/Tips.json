@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Watering Tips",
+    "icon": "💧",
+    "description": "Water indoor plants 2–3 times a week. Always check the soil before watering to avoid overwatering."
+  },
+  {
+    "id": 2,
+    "title": "Sunlight Tips",
+    "icon": "☀️",
+    "description": "Place plants near windows with indirect sunlight. Avoid harsh direct sunlight for indoor plants."
+  },
+  {
+    "id": 3,
+    "title": "Fertilizing Tips",
+    "icon": "🌿",
+    "description": "Use organic fertilizer once a month to keep plants healthy and promote steady growth."
+  },
+  {
+    "id": 4,
+    "title": "Humidity Care",
+    "icon": "💨",
+    "description": "Indoor plants love humidity. Light misting helps keep leaves fresh and green."
+  }
+]
