@@ -24,7 +24,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <Link to="/" className="btn btn- md:ml-5 text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
+    <Link to="/" className="btn md:ml-5 text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
   </div>
   <div className="navbar-center hidden sm:flex">
     <ul className="menu menu-horizontal px-1 text-accent">

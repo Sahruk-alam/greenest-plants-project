@@ -5,6 +5,10 @@ import Plants from "../component/pages/Plants";
 import Profile from "../component/pages/Profile";
 import Login from "../component/pages/Login";
 import SignUp from "../component/pages/SignUp";
+import Details from "../component/pages/Details";
+import CommonLayout from "../component/layout/CommonLayout";
+import Animation from "../component/Animation/Animation";
+import PlantDetail from "../component/pages/PlantDetail";
 const router=createBrowserRouter([
 
 {
@@ -13,7 +17,11 @@ const router=createBrowserRouter([
     children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <div>
+                <Home></Home>,
+            <Animation></Animation>,
+            <PlantDetail></PlantDetail>
+            </div>
         },
         {
             path: '/plants',
@@ -24,6 +32,10 @@ const router=createBrowserRouter([
             element: <Profile></Profile>
         }
     ]
+},
+{
+    path:'/details/:id',
+    element:<Details></Details>
 },
 {
     path:'/login',

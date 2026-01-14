@@ -17,11 +17,13 @@ const HeroSlider = () => {
       >
         {/* Slide 1 */}
         <SwiperSlide>
+      
           <div className=" flex bg-base-300 h-full justify-between items-center">
+            
             <div className="flex ml-2 flex-col p-2 justify-center items-center">
             <h4 className="text-sm text-green-600 font-semibold">Take a plant</h4>
-            <h2 className="text-sm">Get 30% off </h2>
-            <h5 className="text-xs">price : $20</h5>
+            <h2 className="text-sm font-semibold">Get 30% off </h2>
+            <h5 className="text-sm">price : $20</h5>
             <button className="btn btn-success mt-3.5"> Shop Now</button>
             </div>
             <div className="">
@@ -33,8 +35,8 @@ const HeroSlider = () => {
            <div className=" flex bg-base-300 h-full justify-between items-center">
             <div className="flex ml-2 flex-col p-2 justify-center items-center">
             <h4 className="text-sm text-green-600 font-semibold">Take a plant</h4>
-            <h2 className="text-sm">Get 20% off order now</h2>
-            <h5 className="text-xs">price : $22</h5>
+            <h2 className="text-sm font-semibold">Get 20% off</h2>
+            <h5 className="text-sm">price : $22</h5>
             <button className="btn btn-success mt-3.5"> Shop Now</button>
             </div>
             <div className="">
@@ -46,8 +48,8 @@ const HeroSlider = () => {
           <div className=" flex bg-base-300 h-full justify-between items-center">
             <div className="flex ml-2 flex-col p-2 justify-center items-center">
             <h4 className="text-sm text-green-600 font-semibold">Take a plant</h4>
-            <h2 className="text-sm">Get 50% off </h2>
-            <h5 className="text-xs">price : $30</h5>
+            <h2 className="text-sm font-semibold">Get 50% off </h2>
+            <h5 className="text-sm">price : $30</h5>
             <button className="btn btn-success mt-3.5"> Shop Now</button>
             </div>
             <div className="">
