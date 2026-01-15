@@ -1,14 +1,14 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../../Authentication/AuthProvider";
-// import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 
 const SignUp = () => {
-  const { CreateUser, setUser, updateUser } =use(AuthContext);
+  const { CreateUser, setUser, updateUser, googleSign } =use(AuthContext);
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
-//   const navigation=useNavigate()
+  const navigation=useNavigate()
   const handleRegister = (event) => {
     event.preventDefault();
     const photo = event.target.photo.value;
@@ -23,7 +23,7 @@ const SignUp = () => {
     }
     setNameError("");
     if (password.length < 6) {
-      setPasswordError("Password must be at least 6 characters long.");
+      setPasswordError("Required uppercase, lowercase with minimum 6 characters.");
       return;
     }
     setPasswordError("");
@@ -37,97 +37,95 @@ const SignUp = () => {
     CreateUser(email, password)
       .then((result) => {
         console.log(result.user);
-//         updateUser({
-//           displayName: name,
-//           photoURL: photo
-//         }).then(() => {
-//           // console.log('Profile updated successfully');
-//           setUser({...result.user, displayName: name,
-//             photoURL: photo});
-//             navigation('/');
-//         }).catch((error) => {
-//           console.log('Error updating profile:', error);
-//           setUser(result.user);
-//         });
+        updateUser({
+          displayName: name,
+          photoURL: photo
+        }).then(() => {
+          // console.log('Profile updated successfully');
+          setUser({...result.user, displayName: name,
+            photoURL: photo});
+            navigation('/');
+        }).catch((error) => {
+          console.log('Error updating profile:', error);
+          setUser(result.user);
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
         alert(errorMessage);
       });
+  }  
+ const handleGoogle=()=>{
+    googleSign()
+    .then(result=>{
+      console.log(result.user);
+      setUser(result.user);
+      navigation('/');
+    })
+    .catch(error=>{
+      console.error('Error during Google sign-in:', error);
+    });     
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="card py-6 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card py-6  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h2 className="font-bold text-2xl text-center">
           Register your account</h2>
         <form onSubmit={handleRegister} className="card-body">
           <fieldset className="fieldset">
             <label className="label font-bold">Your Name </label>
-            <input
-              type="text"
-              name="name"
-              required
-              className="input"
-              placeholder="Enter your Name"
-            />
+            <input  type="text" name="name" required
+              className="input"  placeholder="Enter your Name"/>
             {nameError && (
               <p className="text-red-600 font-semibold">{nameError}</p>
             )}
             <label className="label font-bold">Photo URL</label>
             <input
-              type="text"
-              name="photo"
-              required
-              className="input"
-              placeholder="Enter your Photo URL"
-            />
+              type="text"  name="photo" required
+              className="input"  placeholder="Enter your Photo URL"/>
 
             <label className="label font-bold">Email address</label>
             <input
-              type="email"
-              name="email"
-              required
-              className="input"
-              placeholder="Enter your Email"
-            />
+              type="email" name="email" required
+              className="input" placeholder="Enter your Email"/>
             {
               emailError && (<p className="text-red-600 font-semibold">{emailError}</p>)
             }
             <label className="label font-bold">Password</label>
-            <input
-              type="password"
+            <input  type="password"
               name="password"
               required
-              className="input"
-              placeholder="Enter your Password"
-            />
+              className="input" placeholder="Enter your Password"            />
             {
               passwordError && (<p className="text-red-600 font-semibold">{passwordError}</p>)
             }
             <div className="flex mt-2">
               <input
-                type="checkbox"
-                name="terms"
-                required
-                id="terms"
-                className="mr-2"
-              />
+                type="checkbox" name="terms"
+                required id="terms" className="mr-2" />
               <p>Agree to terms and conditions</p>
             </div>
 
             <button type="submit" className="btn btn-neutral mt-2">
               Register
             </button>
+            
             <p className="text-center font-semibold pt-3">
               Already have an account?
-              <a href="/login" className="link text-blue-500">
+              <Link to="/login" className="link text-blue-500">
                 Login
-              </a>
-            </p>
+              </Link>
+            </p>   
           </fieldset>
         </form>
+
+   <div className="card  px-6">
+     <button onClick={handleGoogle} className="btn text-black outline-1">
+        <svg aria-label="Google logo" width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
+         Login with Google</button>
+   </div>
       </div>
     </div>
   );

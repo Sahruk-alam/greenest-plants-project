@@ -48,7 +48,7 @@ const Navbar = () => {
    
   <div className="navbar-end gap-2 ">
     {
-      user && <span className="font-semibold">{user.email}</span>
+      user && <span className="font-semibold">{user.displayName}</span>
     }
     {
       user ? <a onClick={handlesignOutUser} className="btn">Logout</a> : <Link to="/login" className="btn">Login</Link>

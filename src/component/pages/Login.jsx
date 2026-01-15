@@ -5,7 +5,7 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
   const {signInUser, forgetPassword}=use(AuthContext)
-//   const emailRef=useRef();
+  const emailRef=useRef();
   const location=useLocation();
   console.log(location);
   const navigate=useNavigate()
@@ -34,19 +34,19 @@ const Login = () => {
         setError('Invalid email or password');
     })
     }
-    // const handleForget=(e)=>{
-    //   e.preventDefault();
-    //   const email=emailRef.current.value;
-    //   console.log("Email", email);
-    //   forgetPassword(email)
-    //   .then(() => {
-    //     alert('Password reset email sent. Please check your inbox.');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error sending password reset email:', error);
-    //     alert('Failed to send password reset email. Please try again later.');
-    //   });
-    // }
+    const handleForget=(e)=>{
+      e.preventDefault();
+      const email=emailRef.current.value;
+      console.log("Email", email);
+      forgetPassword(email)
+      .then(() => {
+        alert('Password reset email sent. Please check your inbox.');
+      })
+      .catch((error) => {
+        console.error('Error sending password reset email:', error);
+        alert('Failed to send password reset email. Please try again later.');
+      });
+    } 
     return (
         <div className='flex justify-center items-center min-h-screen'>
             <div className="card py-6 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -54,10 +54,10 @@ const Login = () => {
       <form onSubmit={handleLogin} className="card-body">
         <fieldset className="fieldset"> 
           <label className="label font-bold">Email address</label>
-          <input type="email"  name='email' required className="input" placeholder="Enter your Email" />
+          <input type="email"  name='email' required className="input" placeholder="Enter your Email" ref={emailRef} />
           <label className="label font-bold">Password</label>
           <input type="password" name='password' required className="input" placeholder="Enter your Password" />
-          <div><a  className="link link-hover">Forgot password?</a></div>
+          <div><a onClick={handleForget} className="link link-hover">Forgot password?</a></div>
           {
             error && <p className='text-red-600 font-semibold'>{error}</p>
           }
