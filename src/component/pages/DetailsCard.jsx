@@ -16,7 +16,7 @@ const DetailsCard = ({ plant }) => {
             </div>
             </div >
             <div className='justify-center flex mt-4'>
-            <Link to={`/details/${plant.id}`} className='btn btn-success '>View Details</Link>
+            <Link to={`/details/${plant.plantId}`} className='btn btn-success '>View Details</Link>
             </div>
         </div>
     );

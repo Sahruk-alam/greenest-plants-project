@@ -7,6 +7,8 @@ import Login from "../component/pages/Login";
 import SignUp from "../component/pages/SignUp";
 import Details from "../component/pages/Details";
 import CommonLayout from "../component/layout/CommonLayout";
+import PrivateRoutes from "../component/PrivateRoute/PrivateRoutes";
+import Loading from "../component/pages/Loading";
 const router=createBrowserRouter([
 {
     path: '/',
@@ -31,7 +33,11 @@ const router=createBrowserRouter([
 },
 {
     path:'/details/:id',
-    element:<Details></Details>
+    element:<PrivateRoutes>
+        <Details></Details>
+    </PrivateRoutes>,
+    loader: ()=>fetch('/plants.json'),
+    hydrateFallbackElement:<Loading></Loading>
 },
 {
     path:'/login',
