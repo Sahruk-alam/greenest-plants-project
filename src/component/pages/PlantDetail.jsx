@@ -3,7 +3,7 @@ import DetailsCard from './DetailsCard';
 const promise=fetch('/plants.json').then(res=>res.json());
 const PlantDetail = () => {
     const data =use(promise);
-    console.log(data);
+    // console.log(data);
     return (
         <div className=''>
             <h2 className='text-center text-green-700 text-2xl font-semibold my-10'>Indoor Plants</h2>

@@ -6,8 +6,6 @@ import Profile from "../component/pages/Profile";
 import Login from "../component/pages/Login";
 import SignUp from "../component/pages/SignUp";
 import Details from "../component/pages/Details";
-import Animation from "../component/Animation/Animation";
-import PlantDetail from "../component/pages/PlantDetail";
 import CommonLayout from "../component/layout/CommonLayout";
 const router=createBrowserRouter([
 {

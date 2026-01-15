@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { use } from 'react';
 import { PiTreeEvergreenFill } from 'react-icons/pi';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../Authentication/AuthProvider';
 
 
 const Navbar = () => {
+  const {user, signoutUser}=use(AuthContext);
+    const handlesignOutUser=()=>{
+    signoutUser()
+    .then(()=>{
+      console.log('User signed out successfully');
+    })
+    .catch(error=>{
+      console.error('Error signing out user:', error);
+    });
+    }
     const links=
         <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -32,9 +43,17 @@ const Navbar = () => {
         links
      }
     </ul>
+   
   </div>
-  <div className="navbar-end ">
-    <Link to="/login" className="btn btn-primary md:mr-5">Login</Link>
+   
+  <div className="navbar-end gap-2 ">
+    {
+      user && <span className="font-semibold">{user.email}</span>
+    }
+    {
+      user ? <a onClick={handlesignOutUser} className="btn">Logout</a> : <Link to="/login" className="btn">Login</Link>
+      }
+   
   </div>
 
 </div>
