@@ -35,7 +35,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <Link to="/" className="btn md:ml-5 text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
+    <Link to="/" className="btn md:ml-5 text-md md:text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
   </div>
   <div className="navbar-center hidden sm:flex">
     <ul className="menu menu-horizontal px-1 text-accent">
@@ -48,10 +48,10 @@ const Navbar = () => {
    
   <div className="navbar-end gap-2 ">
     {
-      user && <span className="font-semibold">{user.displayName}</span>
+      user && <span className="font-semibold flex gap-2 items-center"><span><img src={user.photoURL} alt="User Avatar" className="w-8 h-8 rounded-full" /></span>{user.displayName}</span>
     }
     {
-      user ? <a onClick={handlesignOutUser} className="btn">Logout</a> : <Link to="/login" className="btn">Login</Link>
+      user ? <a onClick={handlesignOutUser} className="btn">Logout</a> : <Link to="/auth/login" className="btn">Login</Link>
       }
    
   </div>

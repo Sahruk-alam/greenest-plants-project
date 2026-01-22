@@ -9,6 +9,8 @@ import Details from "../component/pages/Details";
 import CommonLayout from "../component/layout/CommonLayout";
 import PrivateRoutes from "../component/PrivateRoute/PrivateRoutes";
 import Loading from "../component/pages/Loading";
+import AuthLayout from "../component/layout/AuthLayout";
+import UpdateProfile from "../component/pages/UpdateProfile";
 const router=createBrowserRouter([
 {
     path: '/',
@@ -17,7 +19,7 @@ const router=createBrowserRouter([
         {
             path: '/',
             element: <div>
-                <Home></Home>,
+                <Home></Home>
             <CommonLayout></CommonLayout>
             </div>
         },
@@ -28,25 +30,34 @@ const router=createBrowserRouter([
         {
             path: '/profile',
             element: <Profile></Profile>
-        }
+        },
     ]
 },
-{
+     {
     path:'/details/:id',
     element:<PrivateRoutes>
         <Details></Details>
     </PrivateRoutes>,
-    loader: ()=>fetch('/plants.json'),
-    hydrateFallbackElement:<Loading></Loading>
 },
 {
-    path:'/login',
-    element:<Login></Login>
+    path:'/auth',
+    element: <AuthLayout></AuthLayout>,
+    children:[
+        {
+        path:'/auth/login',
+        element:<Login></Login>
+        },
+    {
+        path:'/auth/signup',
+        element:<SignUp></SignUp>
+    }
+    ]
 },
 {
-    path:'/signup',
-    element:<SignUp></SignUp>
+    path:'/update',
+    element:<UpdateProfile></UpdateProfile>
 }
+
 
 ])
 

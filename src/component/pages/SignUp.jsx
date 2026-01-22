@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../../Authentication/AuthProvider";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 
 const SignUp = () => {
@@ -8,6 +8,7 @@ const SignUp = () => {
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const location=useLocation();
   const navigation=useNavigate()
   const handleRegister = (event) => {
     event.preventDefault();
@@ -44,7 +45,7 @@ const SignUp = () => {
           // console.log('Profile updated successfully');
           setUser({...result.user, displayName: name,
             photoURL: photo});
-            navigation('/');
+            navigation( '/');
         }).catch((error) => {
           console.log('Error updating profile:', error);
           setUser(result.user);
@@ -58,10 +59,10 @@ const SignUp = () => {
   }  
  const handleGoogle=()=>{
     googleSign()
-    .then(result=>{
+    .then(result=>{ 
       console.log(result.user);
       setUser(result.user);
-      navigation('/');
+      navigation(location?.state?.from?.pathname || '/');
     })
     .catch(error=>{
       console.error('Error during Google sign-in:', error);
@@ -114,7 +115,7 @@ const SignUp = () => {
             
             <p className="text-center font-semibold pt-3">
               Already have an account?
-              <Link to="/login" className="link text-blue-500">
+              <Link to="/auth/login" className="link text-blue-500">
                 Login
               </Link>
             </p>   

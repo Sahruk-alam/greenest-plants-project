@@ -2,8 +2,8 @@ import { FaGratipay, FaMeetup } from "react-icons/fa";
 import Animation from "../Animation/Animation";
 import PlantDetail from "../pages/PlantDetail";
 import { use } from "react";
-const PromiseData = fetch("Tips.json").then((res) => res.json());
-const MeetData = fetch("Meet.json").then((res) => res.json());
+const PromiseData = fetch("/Tips.json").then((res) => res.json());
+const MeetData = fetch("/Meet.json").then((res) => res.json());
 const CommonLayout = () => {
   const data = use(PromiseData);
   const meetData = use(MeetData);

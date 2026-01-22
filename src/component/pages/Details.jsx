@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
-import { useLoaderData, useParams } from 'react-router';
-import { FaStar } from 'react-icons/fa';
+// import { useLoaderData, useParams } from 'react-router';
+import { FaStar } from 'react-icons/fa';   
+import { useParams } from 'react-router';
+import AuthProvider from '../../Authentication/AuthProvider';
+import Loading from './Loading';
 
 const Details = () => {
-    const data=useLoaderData();
+    // const data=useLoaderData();
+    // const {loading}=useContext(AuthProvider);
+//    const [loading, setLoading] = useState(true);
     const {id}=useParams();
     const [plant,setPlant]=useState();
-    console.log(plant);
-    // console.log(data);
     useEffect(()=>{
-        const selectedPlant=data.find(plant=>plant.plantId==id);
-               setPlant(selectedPlant);
-    },[data,id])
+        fetch('/plants.json')
+        .then(res=>res.json())
+        .then(data=>{
+       const selectedPlant=data.find(plant=>plant.plantId===Number(id));
+               setPlant(selectedPlant);     
+            //    setLoading(false);
+        })
+        .catch(err => {
+            console.error('Error fetching plants:', err);
+            // setLoading(false);
+        })             
+    },[id])
+    // if(loading){
+    //     return <Loading></Loading>
+    // }
+      if(!plant) return <div className='text-center py-10'>Plant not found</div>
     return (
         <div>
             <Navbar></Navbar>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const DetailsCard = ({ plant }) => {
+    // console.log(plant);
     return (
         <div className='gap-3 p-3 shadow-2xl'>
             <div>
@@ -16,7 +16,10 @@ const DetailsCard = ({ plant }) => {
             </div>
             </div >
             <div className='justify-center flex mt-4'>
+                
             <Link to={`/details/${plant.plantId}`} className='btn btn-success '>View Details</Link>
+                
+            
             </div>
         </div>
     );
