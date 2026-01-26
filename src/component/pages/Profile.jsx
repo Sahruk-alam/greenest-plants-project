@@ -4,17 +4,17 @@ import { FaRegEdit } from "react-icons/fa";
 import Loading from './Loading';
 import { Link } from "react-router";
 const Profile = () => {
-  const { user } = useContext(AuthContext);
-//   if (!user) {
-//     return <h2>Not Logged In</h2>
-//   }
+  const { user, loading } = useContext(AuthContext);
+ if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="min-h-screen  w-11/12 mx-auto mt-10">
         {
         user ? <div className=" px-5  rounded-lg shadow-xl">
         <div className="flex items-center justify-between mb-7">
           <div></div>
-          <Link to='/update' className="flex border-l hover:bg-base-300 px-0.5 border-r border-b items-center gap-1"><FaRegEdit />Edit Profile</Link>
+          <Link to='/update' className="flex border-l hover:bg-base-300 px-0.5 border-r border-b items-center gap-1"><FaRegEdit />Update Profile</Link>
         </div>
         <div className="flex mb-4 items-center justify-between">
           <div>

@@ -1,9 +1,14 @@
-import React, { use } from 'react';
+import React, { use, useContext } from 'react';
 import DetailsCard from './DetailsCard';
+import { AuthContext } from '../../Authentication/AuthProvider';
+import Loading from './Loading';
 const promise=fetch('/plants.json').then(res=>res.json());
 const PlantDetail = () => {
     const data =use(promise);
-    // console.log(data);
+    const {loading}=useContext(AuthContext);
+    if(loading){
+        return <Loading></Loading>
+    }
     return (
         <div className=''>
             <h2 className='text-center text-green-700 text-2xl font-semibold my-10'>Indoor Plants</h2>

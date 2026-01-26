@@ -8,9 +8,9 @@ import SignUp from "../component/pages/SignUp";
 import Details from "../component/pages/Details";
 import CommonLayout from "../component/layout/CommonLayout";
 import PrivateRoutes from "../component/PrivateRoute/PrivateRoutes";
-import Loading from "../component/pages/Loading";
 import AuthLayout from "../component/layout/AuthLayout";
 import UpdateProfile from "../component/pages/UpdateProfile";
+
 const router=createBrowserRouter([
 {
     path: '/',

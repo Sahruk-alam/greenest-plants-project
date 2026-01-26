@@ -2,16 +2,18 @@ import { FaGratipay, FaMeetup } from "react-icons/fa";
 import Animation from "../Animation/Animation";
 import PlantDetail from "../pages/PlantDetail";
 import { use } from "react";
+import Why from "../pages/Why";
 const PromiseData = fetch("/Tips.json").then((res) => res.json());
 const MeetData = fetch("/Meet.json").then((res) => res.json());
 const CommonLayout = () => {
   const data = use(PromiseData);
   const meetData = use(MeetData);
+  
   return (
     <div>
       <Animation></Animation>
       <PlantDetail></PlantDetail>
-      <div className="w-11/12 mx-auto mt-13">
+      <div className="w-11/12 mx-auto mt-19">
         <h3 className="text-2xl flex gap-2 items-center justify-center font-semibold text-amber-600">
           <FaGratipay />
           Plant Care Tips
@@ -28,7 +30,7 @@ const CommonLayout = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div className="mt-19">
         <h3 className="text-2xl flex gap-2 items-center justify-center font-semibold text-blue-700">
           <FaMeetup />
           Meet Our Green Experts
@@ -39,7 +41,7 @@ const CommonLayout = () => {
             <div
               key={meet.expertId}
               className="w-11/12 mx-auto bg-base-300 my-6 p-4 border rounded-lg shadow-lg
-               grid-cols-2 flex gap-4 items-center transition-all duration-300 hover:shadow-2xl hover:bg-blue-100 hover:scale-105 cursor-pointer">
+               grid-cols-2 flex gap-4 items-center transition-all duration-100 hover:shadow-2xl hover:bg-blue-100 hover:scale-105 cursor-pointer">
               <img className="w-32 h-32 rounded-full object-cover"
                 src={meet.image} alt={meet.name}/>
               <div>
@@ -52,6 +54,10 @@ const CommonLayout = () => {
           ))}
         </div>
       </div>
+      {/* extra section */}
+      <section>
+        <Why></Why>
+      </section>
     </div>
   );
 };

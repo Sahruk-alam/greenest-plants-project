@@ -2,11 +2,12 @@ import React, { use } from 'react';
 import { PiTreeEvergreenFill } from 'react-icons/pi';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Authentication/AuthProvider';
+import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
 
 const Navbar = () => {
   const {user, signoutUser}=use(AuthContext);
-    const handlesignOutUser=()=>{
+  const handleSignOutUser=()=>{
     signoutUser()
     .then(()=>{
       console.log('User signed out successfully');
@@ -23,7 +24,7 @@ const Navbar = () => {
         </>
     
     return (
-        <div className="navbar shadow-sm">
+        <div className="navbar px-3 shadow-sm relative z-50 overflow-visible">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost sm:hidden">
@@ -35,7 +36,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <Link to="/" className="btn md:ml-5 text-md md:text-xl text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
+    <Link to="/" className="flex gap-1.5 items-center md:ml-5 text-md md:text-xl font-bold text-green-600"><PiTreeEvergreenFill className='text-green-600' />GreenNest</Link>
   </div>
   <div className="navbar-center hidden sm:flex">
     <ul className="menu menu-horizontal px-1 text-accent">
@@ -46,12 +47,30 @@ const Navbar = () => {
    
   </div>
    
-  <div className="navbar-end gap-2 ">
+  <div className="navbar-end gap-2 relative">
     {
-      user && <span className="font-semibold flex gap-2 items-center"><span><img src={user.photoURL} alt="User Avatar" className="w-8 h-8 rounded-full" /></span>{user.displayName}</span>
+      user && <Link to='/profile'><img src={user.photoURL} alt="User Avatar" className="w-8 h-8 rounded-full" /> </Link>
     }
     {
-      user ? <a onClick={handlesignOutUser} className="btn">Logout</a> : <Link to="/auth/login" className="btn">Login</Link>
+      user ?  
+     <div className="dropdown dropdown-hover dropdown-end">
+  <div tabIndex={0} role="button" className="btn m-1"><IoIosArrowDropdownCircle size={24} className='text-green-600' /></div>
+  <ul tabIndex="-1" className="dropdown-content gap-1.5 menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm">
+    <p className=" text-center py-2 text-sm font-semibold">
+            {user.displayName}
+          </p>
+           <button
+            onClick={handleSignOutUser}
+            className="w-full btn text-left py-2 text-red-500 hover:bg-gray-100">
+            Logout
+          </button>
+
+  </ul>
+</div> :
+       <div className='flex gap-2'>
+      <Link to="/auth/login" className="btn">Login</Link>
+      <Link to="/auth/signup" className="btn">Register</Link>
+    </div>
       }
    
   </div>
@@ -61,3 +80,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

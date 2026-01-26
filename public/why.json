@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Eco-Friendly",
+    "description": "We grow and deliver plants using sustainable and environment-friendly practices.",
+    "icon": "leaf"
+  },
+  {
+    "id": 2,
+    "title": "Expert Support",
+    "description": "Our plant experts are always ready to guide you with proper care and maintenance tips.",
+    "icon": "expert"
+  },
+  {
+    "id": 3,
+    "title": "Quality Plants",
+    "description": "Each plant is handpicked, healthy, and quality-checked before delivery.",
+    "icon": "quality"
+  }
+]
