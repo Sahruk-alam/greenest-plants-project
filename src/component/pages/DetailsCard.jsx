@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const DetailsCard = ({ plant }) => {
-    // console.log(plant);
+  
     return (
         <div className='gap-3 p-3 shadow-2xl'>
             <div>

@@ -16,7 +16,7 @@ const Details = () => {
             
         })
         .catch(err => {
-            console.error('Error fetching plants:', err);
+            alert('Error fetching plants:', err);
         })             
     },[id])
   

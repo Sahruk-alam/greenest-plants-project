@@ -1,12 +1,11 @@
-import React, { use } from 'react';
+import React, { use, useContext } from 'react';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import { Navigate, useLocation } from 'react-router';
 import Loading from '../pages/Loading';
 
 const PrivateRoutes = ({children}) => {
-    const {user, loading}=use(AuthContext);
+    const {user, loading}=useContext(AuthContext);
     const location=useLocation();
-    console.log("Private route location", location);
     if(loading){
         return <Loading></Loading>
     }

@@ -17,7 +17,6 @@ const SignUp = () => {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(name, photo, email, password);
     
     if (name.length < 3) {
       setNameError("Name must be at least 3 characters long.");
@@ -39,7 +38,6 @@ const SignUp = () => {
 
     CreateUser(email, password)
       .then((result) => {
-        console.log(result.user);
         updateUser({
           displayName: name,
           photoURL: photo
@@ -48,7 +46,7 @@ const SignUp = () => {
             photoURL: photo});
             navigate( '/');
         }).catch((error) => {
-          console.log('Error updating profile:', error);
+          alert('Error updating profile:', error);
           setUser(result.user);
         });
       })
@@ -61,12 +59,11 @@ const SignUp = () => {
     const handleGoogle=()=>{
     googleSign()
     .then(result=>{ 
-      console.log(result.user);
       setUser(result.user);
       navigate(location?.state?.from?.pathname || '/');
     })
     .catch(error=>{
-      console.error('Error during Google sign-in:', error);
+      alert('Error during Google sign-in:', error);
     });     
   };
 const handleEye = (event) => {

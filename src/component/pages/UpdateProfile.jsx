@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
+import { a } from 'framer-motion/client';
 
 const UpdateProfile = () => {
     const navigate=useNavigate() 
@@ -24,13 +25,12 @@ const UpdateProfile = () => {
          displayName:name,
          photoURL:photo })
     .then(() => {
-        // console.log('Profile updated successfully');
         setUser({...user, displayName: name,
             photoURL:photo});
             navigate(-1);
     })
     .catch((error) => {
-        console.log('Error updating profile:', error);
+       a('Error updating profile:', error);
     });
   };
     return (

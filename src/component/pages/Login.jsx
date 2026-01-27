@@ -22,8 +22,8 @@ const Login = () => {
         setError('');
       }
       signInUser(email,password)
-      .then(result=>{
-        console.log(result.user);
+      .then(()=>{
+        
         event.target.reset();
        navigate(location?.state?.from?.pathname || '/')
       })
@@ -36,14 +36,13 @@ const Login = () => {
     const handleForget=(e)=>{
       e.preventDefault();
       const email=emailRef.current.value;
-      console.log("Email", email);
+     
       forgetPassword(email)
       .then(() => {
         alert('Password reset email sent. Please check your inbox.');
       })
       .catch((error) => {
-        console.error('Error sending password reset email:', error);
-        alert('Failed to send password reset email. Please try again later.');
+        alert('Failed to send password reset email. Please try again later.', error);
       });
     } 
       const handleEye = (event) => {
@@ -54,12 +53,11 @@ const Login = () => {
      const handleGoogle=()=>{
     googleSign()
     .then(result=>{ 
-      console.log(result.user);
       setUser(result.user);
       navigate(location?.state?.from?.pathname || '/');
     })
     .catch(error=>{
-      console.error('Error during Google sign-in:', error);
+      alert('Error during Google sign-in:', error);
     });     
   };
     return (
