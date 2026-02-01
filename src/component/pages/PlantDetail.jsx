@@ -14,7 +14,7 @@ const PlantDetail = () => {
             <h2 className='text-center text-green-700 text-2xl font-semibold my-10'>Indoor Plants</h2>
            <div className='my-6 w-11/12 mx-auto gap-3  md:grid grid-cols-3'>
              {
-                data.map(plant=> <DetailsCard key={plant.id} plant={plant} ></DetailsCard>) 
+                data.map(plant=> <DetailsCard key={plant.plantId} plant={plant} ></DetailsCard>) 
             }
            </div>
         </div>

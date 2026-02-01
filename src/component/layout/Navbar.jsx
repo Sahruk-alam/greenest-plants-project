@@ -3,6 +3,7 @@ import { PiTreeEvergreenFill } from 'react-icons/pi';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
+import Loading from '../pages/Loading';
 
 
 const Navbar = () => {
@@ -49,6 +50,7 @@ const Navbar = () => {
    
   <div className="navbar-end gap-2 relative">
     {
+      
       user && <Link to='/profile'><img src={user.photoURL} alt="User Avatar" className="w-8 h-8 rounded-full" /> </Link>
     }
     {

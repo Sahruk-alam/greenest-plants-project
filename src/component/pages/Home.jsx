@@ -1,8 +1,42 @@
-import React from 'react';
-import { Navigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import Animation from '../Animation/Animation';
+import DetailsCard from './DetailsCard';
+import Loading from './Loading';
 
 const Home = () => {
-    return <Navigate to='/' />;
+    const [plants, setPlants] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/plants.json')
+            .then(res => res.json())
+            .then(data => {
+                setPlants(data.slice(0, 6));
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error('Error loading plants:', err);
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return <Loading />;
+    }
+
+    return (
+        <div className="min-h-screen">
+            <Animation />
+            <div className="mt-10 mb-10">
+                <h2 className="text-3xl font-bold text-center mb-8">Featured Plants</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
+                    {plants.map(plant => (
+                        <DetailsCard key={plant.plantId} plant={plant} />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Home;

@@ -11,54 +11,51 @@ import PrivateRoutes from "../component/PrivateRoute/PrivateRoutes";
 import AuthLayout from "../component/layout/AuthLayout";
 import UpdateProfile from "../component/pages/UpdateProfile";
 
-const router=createBrowserRouter([
-{
-    path: '/',
+const router = createBrowserRouter([
+  {
+    path: "/",
     element: <MainHome></MainHome>,
     children: [
-        {
-            path: '/',
-            element: <div>
-                <Home></Home>
-            <CommonLayout></CommonLayout>
-            </div>
-        },
-        {
-            path: '/plants',
-            element:<Plants></Plants>
-        },
-        {
-            path: '/profile',
-            element: <Profile></Profile>
-        },
-    ]
-},
-     {
-    path:'/details/:id',
-    element:<PrivateRoutes>
+      {
+        path: "/",
+        element: <CommonLayout></CommonLayout>,
+      },
+      {
+        path: "/plants",
+        element: <Plants></Plants>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
+    ],
+  },
+  {
+    path: "/details/:id",
+    element: (
+      <PrivateRoutes>
         <Details></Details>
-    </PrivateRoutes>,
-},
-{
-    path:'/auth',
+      </PrivateRoutes>
+    ),
+  },
+  {
+    path: "/auth",
     element: <AuthLayout></AuthLayout>,
-    children:[
-        {
-        path:'/auth/login',
-        element:<Login></Login>
-        },
-    {
-        path:'/auth/signup',
-        element:<SignUp></SignUp>
-    }
-    ]
-},
-{
-    path:'/update',
-    element:<UpdateProfile></UpdateProfile>
-}
-
-
-])
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/signup",
+        element: <SignUp></SignUp>,
+      },
+    ],
+  },
+  {
+    path: "/update",
+    element: <UpdateProfile></UpdateProfile>,
+  },
+]);
 
 export default router;
